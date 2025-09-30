@@ -22,7 +22,7 @@ const Header = () => {
             onSubmit={(val) => console.log("Search submitted:", val)}
           />
           <div className="relative">
-            <Notifications count={5} />
+            <Notifications onClick={() => alert("notification clicked!")} count={5} />
           </div>
 
           <div className="relative">
