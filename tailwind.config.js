@@ -20,7 +20,8 @@ export default {
         "48":"48px"
       },
       borderRadius:{
-        "20":"20px"
+        "20":"20px",
+        "30":"30px"
       }
     },
   },
