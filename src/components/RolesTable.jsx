@@ -1,34 +1,31 @@
 import React from "react";
-import { Eye, Edit, Trash2 } from "lucide-react";
 import { PermissionsGroup } from "./PermissionsGroup";
 import { StatusBadge } from "./StatusBadge";
 
-const RolesTable = ({ roles }) => {
+const RolesTable = ({ roles, headings }) => {
   return (
-    <div className="w-full px-5 ">
-      <div className="bg-white rounded-full   overflow-hidden">
+    <div className="w-full px-5">
+      {/* Table Header */}
+      <div className="bg-white rounded-full overflow-hidden">
         <table className="w-full">
           <thead className="w-full">
             <tr className="bg-gray-100">
-              <th className="px-6 py-4 text-left text-base font-semibold text-black">
-                Role Name
-              </th>
-              <th className="px-6 py-4 text-left text-base font-semibold text-black">
-                Permissions
-              </th>
-              <th className="px-6 py-4 text-left text-base font-semibold text-center text-black">
-                Created on
-              </th>
-              <th className="px-6 py-4 text-left text-base font-semibold  text-black">
-                Status
-              </th>
-              <th className="px-6 py-4 text-left text-base font-semibold  text-black">
-                Actions
-              </th>
+              {headings.map((heading, index) => (
+                <th
+                  key={index}
+                  className={`px-6 py-4 text-left text-base font-semibold text-black ${
+                    heading === "Created on" ? "text-center" : ""
+                  }`}
+                >
+                  {heading}
+                </th>
+              ))}
             </tr>
           </thead>
         </table>
       </div>
+
+      {/* Table Body */}
       <table className="w-full">
         <tbody>
           {roles.map((role, index) => (
@@ -39,7 +36,6 @@ const RolesTable = ({ roles }) => {
               <td className="px-6 py-11">
                 <PermissionsGroup
                   permissions={role.permissions}
-                  extraCount={role.extraPermissions}
                 />
               </td>
               <td className="px-6 py-11 text-base font-normal text-gray-900">
@@ -50,25 +46,28 @@ const RolesTable = ({ roles }) => {
               </td>
               <td className="px-6 py-11">
                 <div className="flex items-center gap-3">
-                  <button className="text-blue-500 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-blue-600">
+                  <button onClick={()=>alert("view clicked...")} className="text-blue-500 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-blue-600">
                     <img
                       height={20}
                       width={20}
                       src={"src/assets/icons/eye.svg"}
+                      alt="View"
                     />
                   </button>
-                  <button className="text-orange-500 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-orange-600">
+                  <button onClick={()=>alert("edit clicked...")} className="text-orange-500 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-orange-600">
                     <img
                       height={20}
                       width={20}
                       src={"src/assets/icons/edit.svg"}
+                      alt="Edit"
                     />
                   </button>
-                  <button className="text-red-600 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-red-700">
+                  <button onClick={()=>alert("delete clicked...")} className="text-red-600 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-red-700">
                     <img
                       height={20}
                       width={20}
                       src={"src/assets/icons/delete.svg"}
+                      alt="Delete"
                     />
                   </button>
                 </div>
