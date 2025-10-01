@@ -9,9 +9,9 @@ export const SidebarDropdownButton = ({
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
-  const buttonClasses = `flex items-center h-60 justify-between px-4 py-2.5 w-[228px] transition-all ${
+  const buttonClasses = `flex items-center h-60 justify-between px-2 py-2.5 w-[228px] transition-all ${
     active
-      ? "bg-gradient-to-r from-yellow-600 to-yellow-500 text-white rounded-full shadow-md"
+      ? "bg-goldgreen shadow-md"
       : "text-gray-800 hover:bg-white bg-white rounded-full"
   }`;
 
@@ -28,9 +28,9 @@ export const SidebarDropdownButton = ({
         </div>
         <img src="src/assets/icons/down-arrow.svg"
           size={16}
-          className={`transition-transform ${
+          className={`transition-transform mr-4 ${
             active ? "text-white" : "text-yellow-600"
-          } ${isOpen ? "rotate-180" : ""}`}
+          } ${!isOpen ? "rotate-180" : ""}`}
         />
       </button>
 

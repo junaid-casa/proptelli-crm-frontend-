@@ -1,19 +1,4 @@
-import {
-  LayoutDashboard,
-  Users,
-  UserCircle,
-  ShieldCheck,
-  Briefcase,
-  ChevronDown,
-  GraduationCap,
-  ListChecks,
-  BarChart3,
-  Headphones,
-  Bug,
-  MessageSquareMore,
-  LogOut,
-  RefreshCw,
-} from "lucide-react";
+
 import { SidebarMenuButton } from "./buttons/SidebarMenuButton";
 import { SidebarDropdownButton } from "./buttons/SidebarDropdownButton";
 import { useNavigate } from "react-router-dom";
@@ -24,8 +9,8 @@ const Sidebar = () => {
    const navigate = useNavigate();
 
   const menuItems = [
-    { icon: "src/assets/icons/app.svg", label: "Dashboard", path: "/" },
-    { icon: "src/assets/icons/channel-partners.svg", label: "Channel Partners", path: "/channel-partners" },
+    { icon: "src/assets/icons/dashboard.svg", label: "Dashboard", path: "/" },
+    { icon: "src/assets/icons/channel.svg", label: "Channel Partners", path: "/channel-partners" },
     { icon: "src/assets/icons/users.svg", label: "Leads", path: "/leads" },
     { icon: "src/assets/icons/bdm.svg", label: "BDM", path: "/bdm" },
     { icon: "src/assets/icons/roles.svg", label: "Roles", path: "/roles", active: true },
@@ -61,7 +46,7 @@ const Sidebar = () => {
           icon={"src/assets/icons/app.svg"}
           label="App"
           submenuItems={appSubmenu}
-          defaultOpen={true}
+          defaultOpen={false}
         />
         </ul>
       </nav>
