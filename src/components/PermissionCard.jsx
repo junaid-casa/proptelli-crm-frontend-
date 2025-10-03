@@ -5,7 +5,7 @@ const PermissionCard = ({ title, permissions, onPermissionToggle, onToggleAll, i
   return (
     <div className=" bg-greywhite rounded-30 w-399 h-147 p-4">
       <div className="flex justify-between items-center mb-2">
-        <span className="font-semibold text-sm text-black">{title}</span>
+        <span className="font-semibold text-md text-black">{title}</span>
 
         <PermissionButton
           label="ALL"

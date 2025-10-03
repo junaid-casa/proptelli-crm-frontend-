@@ -25,7 +25,7 @@ const PermissionSection = ({initialPermissions}) => {
   };
 
   return (
-    <div className="p-6">
+    <div className="">
       <PermissionCard
         title="Leads"
         permissions={leadPermissions}

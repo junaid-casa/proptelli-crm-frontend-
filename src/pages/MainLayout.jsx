@@ -11,7 +11,7 @@ export default function MainLayout() {
         <Sidebar />
 
         {/* Main Content Area */}
-        <main className="flex-1 p-6 bg-white overflow-auto">
+        <main className="flex-1 bg-white overflow-auto">
           <Outlet />
         </main>
       </div>
