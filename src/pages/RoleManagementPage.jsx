@@ -4,6 +4,7 @@ import SearchInput from "../components/SearchInput ";
 import RolesTable from "../components/RolesTable";
 import StatCard from "../components/StatCard";
 import InformationTable from "../components/InformationTable";
+import PermissionSection from '../components/PermissionSection'
 import { Briefcase, Users } from "lucide-react";
 const RoleManagementPage = () => {
 
@@ -13,6 +14,14 @@ const RoleManagementPage = () => {
   { label: "Editable", value: true },
   { label: "Deletable", value: false }
 ]
+
+const initialPermissions = [
+    { label: "VIEW", active: true },
+    { label: "CREATE", active: false },
+    { label: "EDIT", active: false },
+    { label: "DELETE", active: false },
+    { label: "ASSIGN", active: false },
+  ];
   const roles = [
     {
       name: "Sales Agent",
@@ -90,6 +99,9 @@ const RoleManagementPage = () => {
         <InformationTable
         fields={fields}
       />
+
+        <PermissionSection initialPermissions={initialPermissions}/>
+
 
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
