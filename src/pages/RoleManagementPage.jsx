@@ -44,14 +44,14 @@ const RoleManagementPage = () => {
         {/* Stats Cards */}
         <div className="flex gap-4 mb-6">
           <StatCard
-            icon={<Briefcase className="text-white" size={40} />}
+            src={"src/assets/icons/suitcase.svg"}
             title="Roles"
             count={3}
             iconBg="#E6A100"
             onClick={() => console.log("Roles clicked")}
           />
           <StatCard
-            icon={<Users className="text-white" size={40} />}
+            src={"src/assets/icons/users-1.svg"}
             title="Users"
             count={15}
             iconBg="#4A90E2"

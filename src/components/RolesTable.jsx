@@ -1,6 +1,7 @@
 import React from "react";
 import { PermissionsGroup } from "./PermissionsGroup";
 import { StatusBadge } from "./StatusBadge";
+import IconButton from "./buttons/IconButton";
 
 const RolesTable = ({ roles, headings }) => {
   return (
@@ -34,9 +35,7 @@ const RolesTable = ({ roles, headings }) => {
                 {role.name}
               </td>
               <td className="px-6 py-11">
-                <PermissionsGroup
-                  permissions={role.permissions}
-                />
+                <PermissionsGroup permissions={role.permissions} />
               </td>
               <td className="px-6 py-11 text-base font-normal text-gray-900">
                 {role.createdOn}
@@ -46,30 +45,21 @@ const RolesTable = ({ roles, headings }) => {
               </td>
               <td className="px-6 py-11">
                 <div className="flex items-center gap-3">
-                  <button onClick={()=>alert("view clicked...")} className="text-blue-500 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-blue-600">
-                    <img
-                      height={20}
-                      width={20}
-                      src={"src/assets/icons/eye.svg"}
-                      alt="View"
-                    />
-                  </button>
-                  <button onClick={()=>alert("edit clicked...")} className="text-orange-500 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-orange-600">
-                    <img
-                      height={20}
-                      width={20}
-                      src={"src/assets/icons/edit.svg"}
-                      alt="Edit"
-                    />
-                  </button>
-                  <button onClick={()=>alert("delete clicked...")} className="text-red-600 bg-greywhite p-2 w-35 h-35 rounded-full hover:text-red-700">
-                    <img
-                      height={20}
-                      width={20}
-                      src={"src/assets/icons/delete.svg"}
-                      alt="Delete"
-                    />
-                  </button>
+                  <IconButton
+                    icon={"src/assets/icons/eye.svg"}
+                    alt="View"
+                    onClick={() => alert("view clicked...")}
+                  />
+                  <IconButton
+                    icon={"src/assets/icons/edit.svg"}
+                    alt="Edit"
+                    onClick={() => alert("edit clicked...")}
+                  />
+                  <IconButton
+                    icon={"src/assets/icons/delete.svg"}
+                    alt="Delete"
+                    onClick={() => alert("Delete clicked...")}
+                  />
                 </div>
               </td>
             </tr>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const StatCard = ({ icon, title, count, iconBg, onClick }) => {
+const StatCard = ({ src, title, count, iconBg, onClick }) => {
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
@@ -19,7 +19,7 @@ const StatCard = ({ icon, title, count, iconBg, onClick }) => {
         className={`w-75 h-75 flex items-center justify-center rounded-full`}
         style={{ backgroundColor: iconBg }}
       >
-        {icon}
+        <img width={33} height={31} src={src}/>
       </div>
 
       {/* Text */}
