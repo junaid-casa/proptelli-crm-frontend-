@@ -3,8 +3,16 @@ import PrimaryButton from "../components/buttons/PrimaryButton";
 import SearchInput from "../components/SearchInput ";
 import RolesTable from "../components/RolesTable";
 import StatCard from "../components/StatCard";
+import InformationTable from "../components/InformationTable";
 import { Briefcase, Users } from "lucide-react";
 const RoleManagementPage = () => {
+
+    const fields = [
+  { label: "Role Name", value: "Sales Agent" },
+  { label: "Created on", value: "Aug 2, 2025" },
+  { label: "Editable", value: true },
+  { label: "Deletable", value: false }
+]
   const roles = [
     {
       name: "Sales Agent",
@@ -78,6 +86,10 @@ const RoleManagementPage = () => {
 
         {/* Roles Table */}
         <RolesTable roles={roles} headings={headings} />
+
+        <InformationTable
+        fields={fields}
+      />
 
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
