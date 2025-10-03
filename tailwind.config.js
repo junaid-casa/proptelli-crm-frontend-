@@ -6,22 +6,43 @@ export default {
       colors: {
         greywhite: "#F5F5F5",
         darkgreywhite: "#E1E1E1",
-        goldgreen : "#A9832C"
+        goldgreen : "#A9832C",
+        yellow:"#DDB61A",
+        brickred:"#C15A16"
       },
       spacing: {
         "10":"10px",
+        "11":"11px",
+        "14":"14px",
         "18":"18px",
         "19":"19px",
+        "33":"33px",
+        "35":"35px",
         "60": "60px",
         "28": "28px",
         "20": "20px",
+        "22":"22px",
         "74": "74px",
+        "75":"75px",
+        "40":"40px",
         "50":"50px",
-        "48":"48px"
+        "53":"53px",
+        "48":"48px",
+        "43": "43px",
+        "134":"134px",
+        "188":"188px",
+        "261":"261px",
+
+        "372":"372px"
       },
       borderRadius:{
         "20":"20px",
         "30":"30px"
+      },
+      fontSize:{
+        "md":"15px",
+        "xss":"13px",
+        "4.5xl":"50px"
       }
     },
   },
