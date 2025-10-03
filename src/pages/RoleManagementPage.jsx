@@ -8,20 +8,7 @@ import PermissionSection from '../components/PermissionSection'
 import { Briefcase, Users } from "lucide-react";
 const RoleManagementPage = () => {
 
-    const fields = [
-  { label: "Role Name", value: "Sales Agent" },
-  { label: "Created on", value: "Aug 2, 2025" },
-  { label: "Editable", value: true },
-  { label: "Deletable", value: false }
-]
 
-const initialPermissions = [
-    { label: "VIEW", active: true },
-    { label: "CREATE", active: false },
-    { label: "EDIT", active: false },
-    { label: "DELETE", active: false },
-    { label: "ASSIGN", active: false },
-  ];
   const roles = [
     {
       name: "Sales Agent",
@@ -47,7 +34,7 @@ const initialPermissions = [
   ];
   const headings = ["Role Name", "Permissions", "Created on", "Status", "Actions"];
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-25 px-39">
       <div className="">
         {/* Header Section */}
         <div className="flex justify-between items-center mb-6">
@@ -55,6 +42,10 @@ const initialPermissions = [
           <PrimaryButton
             label="Create Role"
             onClick={() => alert("Create Role Clicked!")}
+            src={"src/assets/icons/add-icon.svg"}
+            bgcolor={"black"}
+            iconheight={24}
+            iconwidth={24}
           />
         </div>
 
@@ -96,13 +87,7 @@ const initialPermissions = [
         {/* Roles Table */}
         <RolesTable roles={roles} headings={headings} />
 
-        <InformationTable
-        fields={fields}
-      />
-
-        <PermissionSection initialPermissions={initialPermissions}/>
-
-
+    
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
           <p className="text-sm text-gray-600">Showing 1 to 3 of 3 entries</p>

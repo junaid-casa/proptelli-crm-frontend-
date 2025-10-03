@@ -8,8 +8,8 @@ const InformationTable = ({ fields}) => {
         {fields.map((field, index) => (
           <React.Fragment key={index}>
             <div className="flex justify-between py-3">
-              <span className="text-gray-600 font-medium">{field.label}</span>
-              <span className="font-semibold text-gray-900">
+              <span className="text-black text-md font-medium">{field.label}</span>
+              <span className="font-normal text-md text-black">
                 {typeof field.value === "boolean"
                   ? field.value
                     ? "YES"
