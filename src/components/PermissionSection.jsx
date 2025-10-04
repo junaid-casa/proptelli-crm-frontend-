@@ -1,38 +1,57 @@
 import React, { useState } from "react";
 import PermissionCard from "../components/PermissionCard";
 
-const PermissionSection = ({initialPermissions}) => {
-  
+const PermissionSection = ({ titles, initialPermissions }) => {
+  // Create separate permissions for each title
+  const [permissionsByCard, setPermissionsByCard] = useState(
+    titles.map(() => initialPermissions)
+  );
 
-  const [leadPermissions, setLeadPermissions] = useState(initialPermissions);
-
-  const togglePermission = (label) => {
-    setLeadPermissions((prev) =>
-      prev.map((perm) =>
-        perm.label === label ? { ...perm, active: !perm.active } : perm
+  const togglePermission = (cardIndex, label) => {
+    setPermissionsByCard((prev) =>
+      prev.map((cardPermissions, i) =>
+        i === cardIndex
+          ? cardPermissions.map((perm) =>
+              perm.label === label ? { ...perm, active: !perm.active } : perm
+            )
+          : cardPermissions
       )
     );
   };
 
-  const areAllActive = leadPermissions.every((perm) => perm.active);
-
-  const toggleAllPermissions = () => {
-    const newState = leadPermissions.map((perm) => ({
-      ...perm,
-      active: !areAllActive,
-    }));
-    setLeadPermissions(newState);
+  const toggleAllPermissions = (cardIndex) => {
+    setPermissionsByCard((prev) =>
+      prev.map((cardPermissions, i) => {
+        if (i === cardIndex) {
+          const areAllActive = cardPermissions.every((perm) => perm.active);
+          return cardPermissions.map((perm) => ({
+            ...perm,
+            active: !areAllActive,
+          }));
+        }
+        return cardPermissions;
+      })
+    );
   };
 
   return (
-    <div className="">
-      <PermissionCard
-        title="Leads"
-        permissions={leadPermissions}
-        onPermissionToggle={togglePermission}
-        onToggleAll={toggleAllPermissions}
-        isAllActive={areAllActive}
-      />
+    <div className="grid grid-cols-3 gap-18 pr-134">
+      {titles.map((item, index) => {
+        const cardPermissions = permissionsByCard[index];
+        const areAllActive = cardPermissions.every((perm) => perm.active);
+
+        return (
+          <div key={index}>
+            <PermissionCard
+              title={item}
+              permissions={cardPermissions}
+              onPermissionToggle={(label) => togglePermission(index, label)}
+              onToggleAll={() => toggleAllPermissions(index)}
+              isAllActive={areAllActive}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
